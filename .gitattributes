@@ -1,0 +1,17 @@
+*.svg text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.java text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.cmd text eol=crlf
+*.txt text eol=lf
+*.webmanifest text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+browserslist text eol=lf
+Dockerfile.* text eol=lf
+*.ico binary
+*.png binary
