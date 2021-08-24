@@ -1,0 +1,17 @@
+vapiVersion: v1
+kind: Pod
+metadata:
+  name: test-connection
+  labels:
+    {{- include "application.labels" . | nindent 4 }}
+    app.kubernetes.io/name: backend
+    app.kubernetes.io/component: test-connection
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: [ 'wget' ]
+      args: [ '{{ include "backend.service.name" .}}' ]
+  restartPolicy: Never

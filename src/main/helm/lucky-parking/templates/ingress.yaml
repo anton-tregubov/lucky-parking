@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: www-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    {{- if (.Values.ingress.ssl)}}
+    kubernetes.io/ingress.allow-http: "false"
+  {{- end }}
+spec:
+  {{- if (.Values.ingress.ssl)}}
+  tls:
+    - hosts:
+        - {{ include "domain" . }}
+      secretName: domain-cert
+  {{- end }}
+  rules:
+    - host: {{ include "domain" . }}
+      http:
+        paths:
+          - backend:
+              service:
+                name: {{ include "backend.service.name" . }}
+                port:
+                  name: {{ include "backend.service.port" . }}
+            path: /

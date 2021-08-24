@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "backend.service.name" . }}
+  labels:
+    {{- include "application.labels" . | nindent 4 }}
+    app.kubernetes.io/name: backend
+    app.kubernetes.io/component: serevice
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: backend
+    app.kubernetes.io/component: serevice
+  ports:
+    - name: {{ include "backend.service.port" . }}
+      protocol: TCP
+      port: 8000
+      targetPort: 8000

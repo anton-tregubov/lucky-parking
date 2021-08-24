@@ -1,0 +1,8 @@
+domain:
+
+ingress:
+  ssl: false
+
+backend:
+  image:
+    name:
