@@ -8,7 +8,7 @@ greeting:
 
 quarkus:
   application:
-    name: lucky-parking
+    name: ${APPLICATION_NAME:backend}
 # todo temp
   oidc:
     enabled: false

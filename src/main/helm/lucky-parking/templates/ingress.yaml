@@ -8,15 +8,15 @@ metadata:
     app.kubernetes.io/component: ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    {{- if (.Values.ingress.ssl)}}
+    {{- if (.Values.ingress.tls.secretName)}}
     kubernetes.io/ingress.allow-http: "false"
   {{- end }}
 spec:
-  {{- if (.Values.ingress.ssl)}}
+  {{- if (.Values.ingress.tls.secretName)}}
   tls:
     - hosts:
         - {{ .Values.domain }}
-      secretName: domain-cert
+      secretName: {{ .Values.ingress.tls.secretName }}
   {{- end }}
   rules:
     - host: {{ .Values.domain }}

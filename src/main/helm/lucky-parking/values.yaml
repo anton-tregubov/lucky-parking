@@ -1,9 +1,10 @@
 domain: kubernetes.docker.internal
 
 ingress:
-  ssl: false
+  tls:
+    secretName:
 
 backend:
   image:
-    name: lucky-parking:latest
+    name: backend:latest
     pullPolicy: Never
