@@ -3,5 +3,4 @@
 cd "$(dirname "$0")"
 
 ./docker-image.sh \
-&& ./k8s-tls-secret.sh \
 && ./k8s-application.sh

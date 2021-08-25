@@ -2,7 +2,13 @@ domain: kubernetes.docker.internal
 
 ingress:
   tls:
-    secretName:
+    secretName: #no value turn off TLS
+    certificate: |-
+      -----BEGIN CERTIFICATE-----
+      -----END CERTIFICATE-----
+    key: |-
+      -----BEGIN RSA PRIVATE KEY-----
+      -----END RSA PRIVATE KEY-----
 
 backend:
   image:

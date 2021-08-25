@@ -10,7 +10,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     {{- if (.Values.ingress.tls.secretName)}}
     kubernetes.io/ingress.allow-http: "false"
-  {{- end }}
+    {{- end }}
 spec:
   {{- if (.Values.ingress.tls.secretName)}}
   tls:
