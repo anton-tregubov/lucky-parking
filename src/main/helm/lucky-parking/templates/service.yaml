@@ -5,12 +5,11 @@ metadata:
   labels:
     {{- include "application.labels" . | nindent 4 }}
     app.kubernetes.io/name: backend
-    app.kubernetes.io/component: serevice
+    app.kubernetes.io/component: service
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/name: backend
-    app.kubernetes.io/component: serevice
+  {{- include "container.labels" . | nindent 4 }}
   ports:
     - name: {{ include "backend.service.port" . }}
       protocol: TCP

@@ -1,7 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: www-ingress
+  name: ingress-proxy
+  labels:
+    {{- include "application.labels" . | nindent 4 }}
+    app.kubernetes.io/name: proxy
+    app.kubernetes.io/component: ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
     {{- if (.Values.ingress.ssl)}}
@@ -24,3 +28,4 @@ spec:
                 port:
                   name: {{ include "backend.service.port" . }}
             path: /
+            pathType: Prefix

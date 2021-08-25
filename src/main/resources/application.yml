@@ -1,7 +1,6 @@
 greeting:
   message: "hello"
 
-
 "%test":
   quarkus:
     oidc:
@@ -10,3 +9,5 @@ greeting:
 quarkus:
   application:
     name: lucky-parking
+  oidc:
+    enabled: false
