@@ -15,11 +15,11 @@ spec:
   {{- if (.Values.ingress.ssl)}}
   tls:
     - hosts:
-        - {{ include "domain" . }}
+        - {{ .Values.domain }}
       secretName: domain-cert
   {{- end }}
   rules:
-    - host: {{ include "domain" . }}
+    - host: {{ .Values.domain }}
       http:
         paths:
           - backend:

@@ -14,26 +14,26 @@ spec:
   template:
     metadata:
       labels:
-      {{- include "application.labels" . | nindent 8 }}
+    {{- include "application.labels" . | nindent 8 }}
     {{- include "container.labels" . | nindent 8 }}
     spec:
       containers:
         - name: backend-container
-          image: lucky-parking:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.backend.image.name }}
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
           ports:
             - containerPort: 8080
           livenessProbe:
             httpGet:
               path: /
-              port: 8000
+              port: 8080
             initialDelaySeconds: 30
             periodSeconds: 10
             timeoutSeconds: 3
           readinessProbe:
             httpGet:
               path: /
-              port: 8000
+              port: 8080
             initialDelaySeconds: 3
             periodSeconds: 10
             timeoutSeconds: 3

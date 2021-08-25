@@ -9,5 +9,6 @@ greeting:
 quarkus:
   application:
     name: lucky-parking
+# todo temp
   oidc:
     enabled: false

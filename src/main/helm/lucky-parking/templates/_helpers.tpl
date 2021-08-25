@@ -10,10 +10,6 @@ app.kubernetes.io/name: backend
 app.kubernetes.io/component: container
 {{- end }}
 
-{{- define "domain" -}}
-    {{(.Values.domain) | default "kubernetes.docker.internal"}}
-{{- end -}}
-
 {{- define "backend.service.name" -}}
 backend-service
 {{- end }}
