@@ -17,3 +17,7 @@ backend-service
 {{- define "backend.service.port" -}}
 http
 {{- end }}
+
+{{- define "host" -}}
+{{ .Values.subdomain }}.{{ .Values.domain }}
+{{- end }}

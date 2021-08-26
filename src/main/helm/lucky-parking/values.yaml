@@ -1,4 +1,5 @@
-domain: kubernetes.docker.internal
+domain: docker.internal
+subdomain: kubernetes
 
 ingress:
   tls:

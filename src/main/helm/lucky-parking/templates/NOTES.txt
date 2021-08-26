@@ -1,1 +1,1 @@
-Application run at: http{{ if .Values.ingress.tls.secretName }}s{{ end }}://{{ .Values.domain }}
+Application run at: http{{ if .Values.ingress.tls.secretName }}s{{ end }}://{{ include "host" . }}

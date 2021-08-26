@@ -17,4 +17,5 @@ helm install --namespace ${K8S_NAMESPACE} \
              --set backend.image.pullPolicy=${DOCKER_IMAGE_PULL_POLICY} \
              ${TLS_VARIABLES} \
              --set domain=${DOMAIN} \
+             --set subdomain=${SUBDOMAIN} \
              ${APPLICATION_NAME} ./src/main/helm/${APPLICATION_NAME}

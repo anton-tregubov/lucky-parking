@@ -27,16 +27,16 @@ spec:
             httpGet:
               path: /
               port: 8080
-            initialDelaySeconds: 120
-            periodSeconds: 20
-            timeoutSeconds: 10
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /
               port: 8080
-            initialDelaySeconds: 120
-            periodSeconds: 20
-            timeoutSeconds: 10
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
           resources:
             requests:
               cpu: {{.Values.backend.resources.requests.cpu}}
