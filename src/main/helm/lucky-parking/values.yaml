@@ -22,3 +22,10 @@ backend:
     limits:
       cpu: "1000m"
       memory: "1024Mi"
+
+keycloak:
+  realm: |-
+    {
+      "id": "lucky-parking",
+      "realm": "lucky-parking"
+    }

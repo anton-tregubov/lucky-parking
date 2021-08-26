@@ -15,6 +15,7 @@ helm install --namespace ${K8S_NAMESPACE} \
              --create-namespace \
              --set backend.image.name=${DOCKER_IMAGE_NAME} \
              --set backend.image.pullPolicy=${DOCKER_IMAGE_PULL_POLICY} \
+             --set-file keycloak.realm=./ci/config/realm-export.json \
              ${TLS_VARIABLES} \
              --set domain=${DOMAIN} \
              --set subdomain=${SUBDOMAIN} \

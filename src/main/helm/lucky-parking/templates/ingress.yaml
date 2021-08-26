@@ -16,12 +16,13 @@ spec:
   {{- if (.Values.ingress.tls.secretName)}}
   tls:
     - hosts:
-        - {{ include "host" . }}
+        - backend.{{ include "host" . }}
+        - keycloak.{{ include "host" . }}
       {{/*      secretName: {{ .Values.ingress.tls.secretName }}*/}}
       secretName: {{ .Values.domain }}
   {{- end }}
   rules:
-    - host: {{ include "host" . }}
+    - host: backend.{{ include "host" . }}
       http:
         paths:
           - backend:
@@ -29,5 +30,15 @@ spec:
                 name: {{ include "backend.service.name" . }}
                 port:
                   name: {{ include "backend.service.port" . }}
+            path: /
+            pathType: Prefix
+    - host: keycloak.{{ include "host" . }}
+      http:
+        paths:
+          - backend:
+              service:
+                name: keycloak
+                port:
+                  name: http
             path: /
             pathType: Prefix
