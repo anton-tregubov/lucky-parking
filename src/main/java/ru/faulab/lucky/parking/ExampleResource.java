@@ -1,16 +1,19 @@
 package ru.faulab.lucky.parking;
 
+import io.smallrye.mutiny.Uni;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-@Path("/hello")
+@Path("/rest")
 public class ExampleResource
 {
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello()
+    @Path("/hello")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<Dto> hello()
     {
-        return "Hello RESTEasy Reactive";
+        return Uni.createFrom().item(new Dto("String", 42));
     }
 }
