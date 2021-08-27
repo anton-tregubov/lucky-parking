@@ -1,1 +1,3 @@
-Application run at: http{{ if .Values.ingress.tls.secretName }}s{{ end }}://{{ include "host" . }}
+Application run at:
+ * http{{ if .Values.ingress.tls.enabled }}s{{ end }}://backend.{{ include "host" . }}
+ * http{{ if .Values.ingress.tls.enabled }}s{{ end }}://keycloak.{{ include "host" . }}
