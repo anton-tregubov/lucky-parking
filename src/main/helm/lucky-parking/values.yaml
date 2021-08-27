@@ -1,12 +1,12 @@
 domain: docker.internal
 subdomain: kubernetes
 
-owner:
-  email:
-
 ingress:
   tls:
     enabled: false
+    acme:
+      email: my@mail.com
+      sever: https://acme-staging-v02.api.letsencrypt.org/directory
 
 backend:
   image:

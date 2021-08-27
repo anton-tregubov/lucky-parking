@@ -5,8 +5,8 @@ metadata:
   name: letsencrypt-{{ .Values.subdomain }}
 spec:
   acme:
-    email: {{ .Values.owner.email }}
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: {{ .Values.ingress.tls.acme.email }}
+    server: {{ .Values.ingress.tls.acme.sever }}
     privateKeySecretRef:
       name: letsencrypt-account-key
     solvers:

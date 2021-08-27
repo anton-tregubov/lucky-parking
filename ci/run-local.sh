@@ -12,6 +12,7 @@ export K8S_CONTEXT=docker-desktop
 export DOMAIN=docker.internal
 export DOMAIN_SSL_ENABLED=false
 export SUBDOMAIN=kubernetes
-export OWNER_EMAIL=zlo@zlo.com
+export DOMAIN_OWNER_EMAIL=zlo@zlo.com
+export DOMAIN_OWNER_ACME_SERVER=https://acme-staging-v02.api.letsencrypt.org/directory
 
 ./all.sh

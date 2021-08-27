@@ -10,7 +10,8 @@ helm install --namespace ${K8S_NAMESPACE} \
              --set backend.image.pullPolicy=${DOCKER_IMAGE_PULL_POLICY} \
              --set-file keycloak.realm=./ci/config/realm-export.json \
              --set ingress.tls.enabled=${DOMAIN_SSL_ENABLED} \
-             --set owner.email=${OWNER_EMAIL} \
+             --set ingress.tls.acme.email=${DOMAIN_OWNER_EMAIL} \
+             --set ingress.tls.acme.sever=${DOMAIN_OWNER_ACME_SERVER} \
              --set domain=${DOMAIN} \
              --set subdomain=${SUBDOMAIN} \
              --kube-context=${K8S_CONTEXT}\
