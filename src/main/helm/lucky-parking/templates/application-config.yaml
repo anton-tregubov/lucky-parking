@@ -3,4 +3,84 @@ kind: ConfigMap
 metadata:
   name: application-config
 data:
-  realm-configuration: {{ .Values.keycloak.realm | quote}}
+  realm-configuration: |-
+    {
+      "id": "lucky-parking",
+      "realm": "lucky-parking",
+      "displayName": "Lucky Parking",
+      "notBefore": 0,
+      "defaultSignatureAlgorithm": "RS256",
+      "revokeRefreshToken": false,
+      "refreshTokenMaxReuse": 0,
+      "accessTokenLifespan": 300,
+      "accessTokenLifespanForImplicitFlow": 900,
+      "ssoSessionIdleTimeout": 1800,
+      "ssoSessionMaxLifespan": 36000,
+      "ssoSessionIdleTimeoutRememberMe": 0,
+      "ssoSessionMaxLifespanRememberMe": 0,
+      "offlineSessionIdleTimeout": 2592000,
+      "offlineSessionMaxLifespanEnabled": false,
+      "offlineSessionMaxLifespan": 5184000,
+      "clientSessionIdleTimeout": 0,
+      "clientSessionMaxLifespan": 0,
+      "clientOfflineSessionIdleTimeout": 0,
+      "clientOfflineSessionMaxLifespan": 0,
+      "accessCodeLifespan": 60,
+      "accessCodeLifespanUserAction": 300,
+      "accessCodeLifespanLogin": 1800,
+      "actionTokenGeneratedByAdminLifespan": 43200,
+      "actionTokenGeneratedByUserLifespan": 300,
+      "oauth2DeviceCodeLifespan": 600,
+      "oauth2DevicePollingInterval": 5,
+      "enabled": true,
+      "sslRequired": "external",
+      "registrationAllowed": false,
+      "registrationEmailAsUsername": false,
+      "rememberMe": false,
+      "verifyEmail": false,
+      "loginWithEmailAllowed": true,
+      "duplicateEmailsAllowed": false,
+      "resetPasswordAllowed": false,
+      "editUsernameAllowed": false,
+      "bruteForceProtected": false,
+      "permanentLockout": false,
+      "maxFailureWaitSeconds": 900,
+      "minimumQuickLoginWaitSeconds": 60,
+      "waitIncrementSeconds": 60,
+      "quickLoginCheckMilliSeconds": 1000,
+      "maxDeltaTimeSeconds": 43200,
+      "failureFactor": 30,
+      "roles": {
+        "realm": [
+          {
+            "id": "52a42fb5-d2ed-4978-b3a7-e5bf6a36e7cf",
+            "name": "default-roles-lucky-parking",
+            "description": "",
+            "composite": true,
+            "composites": {
+              "client": {
+                "account": [
+                    "view-profile",
+                    "manage-account"
+                ]
+              }
+            },
+            "clientRole": false,
+            "containerId": "lucky-parking",
+            "attributes": {}
+          }
+        ]
+      },
+      "groups": [],
+      "defaultRole": {
+        "id": "52a42fb5-d2ed-4978-b3a7-e5bf6a36e7cf",
+        "name": "default-roles-lucky-parking",
+        "description": "",
+        "composite": true,
+        "clientRole": false,
+        "containerId": "lucky-parking"
+      },
+      "requiredCredentials": [
+          "password"
+      ]
+    }

@@ -1,27 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: keycloak
+  name: keycloak-deployment
   labels:
-    app: keycloak
+    {{- include "application.labels" . | nindent 4 }}
+    app.kubernetes.io/name: keycloak
+    app.kubernetes.io/component: deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: keycloak
+  {{- include "keycloak.container.labels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: keycloak
+      {{- include "application.labels" . | nindent 8 }}
+    {{- include "keycloak.container.labels" . | nindent 8 }}
     spec:
       containers:
-        - name: keycloak
+        - name: keycloak-container
           image: quay.io/keycloak/keycloak:15.0.2
           env:
             - name: KEYCLOAK_USER
-              value: "admin"
+              value: {{ .Values.keycloak.admin.name}}
             - name: KEYCLOAK_PASSWORD
-              value: "admin"
+              value: {{ .Values.keycloak.admin.password}}
             - name: KEYCLOAK_IMPORT
               value: "/tmp/realm.json"
             - name: PROXY_ADDRESS_FORWARDING

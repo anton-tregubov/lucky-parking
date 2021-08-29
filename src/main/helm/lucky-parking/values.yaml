@@ -21,8 +21,6 @@ backend:
       memory: "1024Mi"
 
 keycloak:
-  realm: |-
-    {
-      "id": "lucky-parking",
-      "realm": "lucky-parking"
-    }
+  admin:
+    name: admin
+    password: admin

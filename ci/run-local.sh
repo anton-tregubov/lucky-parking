@@ -14,5 +14,7 @@ export DOMAIN_SSL_ENABLED=false
 export SUBDOMAIN=kubernetes
 export DOMAIN_OWNER_EMAIL=zlo@zlo.com
 export DOMAIN_OWNER_ACME_SERVER=https://acme-staging-v02.api.letsencrypt.org/directory
+export ADMIN_USERNAME=admin
+export ADMIN_PASSWORD=admin
 
 ./all.sh

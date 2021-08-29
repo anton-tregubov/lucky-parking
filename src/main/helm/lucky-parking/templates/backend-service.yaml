@@ -9,7 +9,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-  {{- include "container.labels" . | nindent 4 }}
+  {{- include "backend.container.labels" . | nindent 4 }}
   ports:
     - name: {{ include "backend.service.port" . }}
       protocol: TCP

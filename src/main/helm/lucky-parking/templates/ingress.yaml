@@ -37,8 +37,8 @@ spec:
         paths:
           - backend:
               service:
-                name: keycloak
+                name: {{ include "keycloak.service.name" . }}
                 port:
-                  name: http
+                  name: {{ include "keycloak.service.port" . }}
             path: /
             pathType: Prefix

@@ -10,12 +10,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-  {{- include "container.labels" . | nindent 6 }}
+  {{- include "backend.container.labels" . | nindent 6 }}
   template:
     metadata:
       labels:
     {{- include "application.labels" . | nindent 8 }}
-    {{- include "container.labels" . | nindent 8 }}
+    {{- include "backend.container.labels" . | nindent 8 }}
     spec:
       containers:
         - name: backend-container
