@@ -1,0 +1,19 @@
+POST http://keycloak.kubernetes.docker.internal/auth/realms/lucky-parking/protocol/openid-connect/token
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+client_id=mobile-app&grant_type=password&client_secret=516401cd-578b-4a46-bd5e-913a5214afaf&scope=openid&username=zlo&password=zlo
+
+> {% client.global.set("access_token", response.body["access_token"]); %}
+
+###
+GET http://{{backend}}/rest/no-role
+Accept: text/plain
+Authorization: Bearer {{access_token}}
+
+###
+GET http://{{backend}}/rest/secured
+Accept: text/plain
+Authorization: Bearer {{access_token}}
+
+<> 2021-09-13T163312.500.json

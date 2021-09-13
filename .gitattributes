@@ -9,6 +9,7 @@
 *.cmd text eol=crlf
 *.txt text eol=lf
 *.tpl text eol=lf
+*.http text eol=lf
 *.webmanifest text eol=lf
 .gitignore text eol=lf
 .helmignore text eol=lf

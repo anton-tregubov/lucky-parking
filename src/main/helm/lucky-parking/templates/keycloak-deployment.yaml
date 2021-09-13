@@ -29,6 +29,8 @@ spec:
               value: "/tmp/realm.json"
             - name: PROXY_ADDRESS_FORWARDING
               value: "true"
+            - name: KEYCLOAK_FRONTEND_URL
+              value: http{{ if .Values.ingress.tls.enabled }}s{{ end }}://keycloak.{{ include "host" . }}/auth
           ports:
             - name: http
               containerPort: 8080

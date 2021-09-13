@@ -9,6 +9,12 @@ greeting:
 quarkus:
   application:
     name: ${APPLICATION_NAME:lucky-parking}
-# todo temp
   oidc:
-    enabled: false
+    auth-server-url: ${IDENTITY_PROVIDER_URL:http://keycloak.kubernetes.docker.internal/auth/realms/${APPLICATION_NAME:lucky-parking}}
+#    client-id: mobile-app
+#    application-type: service
+#
+#resteasy:
+#  role:
+#    based:
+#      security: true

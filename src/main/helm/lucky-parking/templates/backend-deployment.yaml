@@ -21,6 +21,9 @@ spec:
         - name: backend-container
           image: {{ .Values.backend.image.name }}
           imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          env:
+            - name: IDENTITY_PROVIDER_URL
+              value: http://{{ include "keycloak.service.name" . }}:8080/auth/realms/lucky-parking
           ports:
             - containerPort: 8080
           livenessProbe:
